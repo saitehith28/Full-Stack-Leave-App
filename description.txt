@@ -1,0 +1,24 @@
+1->Create Full Stack Training App
+2->Create backend
+3->npm init
+4->create server.js
+5->npm install nodemon
+6->Edit package.json with start script     start:nodemon server.js
+7->npm install express --save
+8->npm start to check server running
+
+8->create-react-app frontend
+9->cd frontend
+10->npm start to check frontend working
+11->npm install react-router-dom
+12->Load BrowseRouter Routes Route and Link in App.js from react-router-dom
+12->npm install bootstrap
+->import "bootstrap/dist/css/bootstrap.min.css";
+->import "bootstrap/dist/js/bootstrap.bundle.js";
+
+npm install mongoose --save
+npm install body-parser
+npm install cors
+npm install jsonwebtoken
+
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzY…E4NX0.0jpcfvo842m02RjFdk0iQV8rdXacYc9jMSJuhMsoqRA'
