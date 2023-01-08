@@ -20,6 +20,14 @@ function SignUp(){
     const signup=(e)=>{
         e.preventDefault();
         console.log(firstName,lastName,email,password);
+        fetch("http://localhost:5000/user/signup",
+        {method:"POST",body:JSON.stringify({email,password,firstName,lastName}),
+        headers:{'Content-Type':'application/json'}})
+        .then(function(res){
+            return res.json();
+        }).then((res)=>{
+            console.log("SignUp Success");
+        })
     }
     return (
         <div className="login-form-box">

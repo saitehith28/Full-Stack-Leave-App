@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 function Login() {
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
+
+    const navigate=useNavigate();
     const onEmailChange=(e)=>{
         setEmail(e.target.value);
     }
@@ -12,6 +14,16 @@ function Login() {
     const login=(e)=>{
         e.preventDefault();
         console.log(email,password);
+        fetch("http://localhost:5000/user/login",
+        {method:"POST",body:JSON.stringify({email,password}),
+        headers:{'Content-Type':'application/json'}})
+        .then(function(res){
+            return res.json();
+        }).then(function(result){
+            console.log("Login Success",result);
+            localStorage.setItem("loggedInUser",JSON.stringify(result.data));
+            navigate("/userdashboard");
+        })
     }
     return (
         <div className="login-form-box">
