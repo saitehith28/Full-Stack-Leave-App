@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 const userRoutes=require("./routes/user");
 app.use("/user",jsonParser,userRoutes);
 
+const userLeaveRoutes=require("./routes/userleave");
+app.use("/userleave",jsonParser,userLeaveRoutes);
 
 app.get("/",jsonParser,function(req,res){
     res.send("Server running");

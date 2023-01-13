@@ -10,7 +10,7 @@ router.post("/signup",function(req,res){
             res.send(user);
         }
         else{
-            res.status(500).send("something went wrong while signup");
+            res.status(500).send("Something went wrong while signup");
         }
     })
 })
