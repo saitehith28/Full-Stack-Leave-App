@@ -35,15 +35,15 @@ function SignUp(){
                 <div>
                     <h4 className="login-title">Signup</h4>
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                     <label>First Name</label>
                     <input type="text" className="form-control mt-1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name" value={firstName} onChange={(e)=>onFirstNameChange(e)}/>
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                     <label>Last Name</label>
                     <input type="text" className="form-control mt-1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Last Name" value={lastName} onChange={(e)=>onLastNameChange(e)}/>
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                     <label>Email address</label>
                     <input type="email" className="form-control mt-1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={email} onChange={(e)=>onEmailChange(e)}/>
                 </div>
