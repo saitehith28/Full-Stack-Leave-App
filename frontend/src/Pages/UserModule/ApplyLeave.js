@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import UserHeader from "./UserHeader";
 function ApplyLeave(){
     const [userName,setUserName]=useState("");
     const [reason,setReason]=useState("");
@@ -38,7 +39,9 @@ function ApplyLeave(){
         })
     }
     return (
-        <div className="login-form-box">
+        <div>
+            <UserHeader/>
+            <div className="login-form-box">
             <form className="login-form" onSubmit={(e)=>applyLeave(e)}>
                 <div>
                     <h4 className="login-title">Apply Leave</h4>
@@ -65,6 +68,7 @@ function ApplyLeave(){
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Submit</button>
             </form>
+        </div>
         </div>
     )
 }

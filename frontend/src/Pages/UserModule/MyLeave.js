@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import UserHeader from "./UserHeader";
 
 function MyLeave(){
     const [leaves,setLeaves]=useState([]);
@@ -17,7 +18,9 @@ function MyLeave(){
         })
     })
     return(
-        <table className="table">
+        <div>
+            <UserHeader/>
+            <table className="table">
             <thead>
                 <tr>
                     <th scope="col">UserName</th>
@@ -49,6 +52,7 @@ function MyLeave(){
                 }
             </tbody>
         </table>
+        </div>
     )
 }
 

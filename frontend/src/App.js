@@ -9,6 +9,8 @@ import ApplyLeave from './Pages/UserModule/ApplyLeave';
 import MyLeave from './Pages/UserModule/MyLeave';
 import AdminDashboard from './Pages/AdminModule/AdminDashBoard'
 import AllLeave from './Pages/AdminModule/AllLeave';
+import AllUsers from './Pages/AdminModule/AllUsers';
+import Balance from './Pages/UserModule/Balance';
 
 function App() {
   return (
@@ -39,9 +41,15 @@ function App() {
                     <MyLeave/>
                   </ProtectedRoutes>}>
               </Route>
+              <Route path="/balance" element={
+                  <ProtectedRoutes path="/">
+                    <Balance/>
+                  </ProtectedRoutes>}>
+              </Route>
               <Route path="/login" element={<Login/>}></Route>
               <Route path="/admindashboard" element={<AdminDashboard/>}></Route>
               <Route path="/allleave" element={<AllLeave/>}></Route>
+              <Route path="/allusers" element={<AllUsers/>}></Route>
           </Routes>
       </BrowserRouter>
     </div>

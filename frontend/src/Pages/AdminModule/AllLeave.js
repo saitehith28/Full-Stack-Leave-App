@@ -1,12 +1,13 @@
 import { useState,useEffect } from "react";
+import AdminHeader from "./AdminHeader";
 
 function AllLeave(){
     const [leaves,setLeaves]=useState([]);
     const [userName,setUserName]=useState("");
     useEffect(()=>{
-        let loggedInUser=localStorage.getItem("loggedInUser");
-        loggedInUser=loggedInUser ? JSON.parse(loggedInUser) : null;
-        setUserName(loggedInUser.email);
+        // let loggedInUser=localStorage.getItem("loggedInUser");
+        // loggedInUser=loggedInUser ? JSON.parse(loggedInUser) : null;
+        // setUserName(loggedInUser.email);
     },[])
     const getAllLeaves=()=>{
         fetch(`http://localhost:5000/userleave/allleave`)
@@ -33,7 +34,10 @@ function AllLeave(){
         })
     }
     return(
-        <table className="table">
+        <div>
+            <AdminHeader/>
+            <br/>
+            <table className="table">
             <thead>
                 <tr>
                     <th scope="col">UserName</th>
@@ -67,6 +71,7 @@ function AllLeave(){
                 }
             </tbody>
         </table>
+        </div>
     )
 }
 
