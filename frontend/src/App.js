@@ -7,6 +7,8 @@ import UserDashboard from './Pages/UserModule/UserDasboard';
 import ProtectedRoutes from './Pages/ProtectedRoutes';
 import ApplyLeave from './Pages/UserModule/ApplyLeave';
 import MyLeave from './Pages/UserModule/MyLeave';
+import AdminDashboard from './Pages/AdminModule/AdminDashBoard'
+import AllLeave from './Pages/AdminModule/AllLeave';
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
                     <UserDashboard/>
                   </ProtectedRoutes>}>
               </Route>
-              <Route path="/login" element={<Login/>}></Route>
+              
               <Route path="/signup" element={<SignUp/>}></Route>
               {/* Private */}
               <Route path="/userdashboard" element={
@@ -37,6 +39,9 @@ function App() {
                     <MyLeave/>
                   </ProtectedRoutes>}>
               </Route>
+              <Route path="/login" element={<Login/>}></Route>
+              <Route path="/admindashboard" element={<AdminDashboard/>}></Route>
+              <Route path="/allleave" element={<AllLeave/>}></Route>
           </Routes>
       </BrowserRouter>
     </div>

@@ -4,10 +4,10 @@ function MyLeave(){
     const [leaves,setLeaves]=useState([]);
     const [userName,setUserName]=useState("");
     useEffect(()=>{
-        let loggedInUser=localStorage.getItem("loggedInUser");
+        var loggedInUser=localStorage.getItem("loggedInUser");
         loggedInUser=loggedInUser ? JSON.parse(loggedInUser) : null;
         setUserName(loggedInUser.email);
-    },[])
+    })
     useEffect(()=>{
         fetch(`http://localhost:5000/userleave/${userName}/myleave`)
         .then(function(res){
@@ -36,7 +36,11 @@ function MyLeave(){
                                 <td>{leave.userName}</td>
                                 <td>{leave.leaveType}</td>
                                 <td>{leave.reason}</td>
-                                <td>{leave.status}</td>
+                                <td>
+                                    {leave.status==="approved" && <span class="badge bg-success">{leave.status}</span>}
+                                    {leave.status==="pending" && <span class="badge bg-secondary">{leave.status}</span>}
+                                    {leave.status==="rejected" && <span class="badge bg-info text-dark">{leave.status}</span>}
+                                </td>
                                 <td>{leave.startDate}</td>
                                 <td>{leave.endDate}</td>
                             </tr>
