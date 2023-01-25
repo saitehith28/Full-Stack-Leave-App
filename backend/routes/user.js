@@ -4,13 +4,20 @@ const jwt=require("jsonwebtoken");
 const router=express.Router();
 
 router.post("/signup",function(req,res){
-    var user=new User({firstName:req.body.firstName,lastName:req.body.lastName,email:req.body.email,password:req.body.password});
-    user.save().then(function(user){
-        if(user){
-            res.send(user);
+    var user=new User({firstName:req.body.firstName,lastName:req.body.lastName,email:req.body.email,password:req.body.password,role:"user"});
+    User.findOne({email:req.body.email},function(err,found){
+        if(found){
+            res.status(400).send({message:"User already exist with given email"})
         }
         else{
-            res.status(500).send("Something went wrong while signup");
+            user.save().then(function(user){
+                if(user){
+                    res.status(200).send(user);
+                }
+                else{
+                    res.status(500).send({message:"Something went wrong while signup"});
+                }
+            })
         }
     })
 })
@@ -31,6 +38,17 @@ router.post("/login",function(req,res){
             else{
                 res.send("Email/password is wrong");
             }
+        }
+    })
+})
+
+router.get("/allusers",function(req,res){
+    User.find().then(function(users){
+        if(users){
+            res.send(users);
+        }
+        else{
+            res.status(500).send("Something went wrong while fetching users list");
         }
     })
 })

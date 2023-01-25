@@ -48,10 +48,20 @@ router.get("/allleave",function(req,res){
 router.put("/:leaveId/approvereject",function(req,res){
     UserLeave.findByIdAndUpdate(req.params.leaveId,{status:req.body.status}).then(function(leave){
         if(leave){
-            res.send(leave);
+            const difference=new Date(leave.endDate)-new Date(leave.startDate);
+            const days=difference/(1000*60*60*24);
+            console.log(days,leave);
+            User.findByIdAndUpdate({email:leave.userName},{approvedLeaveCount:Number(days)},function(err,result){
+                if(err){
+                    return res.send(err);
+                }
+                else{
+                    res.send(result);
+                }
+            })
         }
         else{
-            res.status(500).send("Something went wrong while fetching approving leaves");
+            res.status(500).send("Something went wrong while fetching approving leave");
         }
     })
 })
