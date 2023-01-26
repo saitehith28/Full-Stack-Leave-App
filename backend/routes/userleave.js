@@ -51,7 +51,7 @@ router.put("/:leaveId/approvereject",function(req,res){
             const difference=new Date(leave.endDate)-new Date(leave.startDate);
             const days=difference/(1000*60*60*24);
             console.log(days,leave);
-            User.findByIdAndUpdate({email:leave.userName},{approvedLeaveCount:Number(days)},function(err,result){
+            User.findOneAndUpdate({email:leave.userName},{approvedLeaveCount:Number(days)},function(err,result){
                 if(err){
                     return res.send(err);
                 }

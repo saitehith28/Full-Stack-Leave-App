@@ -53,4 +53,15 @@ router.get("/allusers",function(req,res){
     })
 })
 
+router.get("/:username/balance",function(req,res){
+    User.findOne({email:req.params.username}).then(function(user){
+        if(user){
+            res.send(user);
+        }
+        else{
+            res.status(500).send("Something went wrong while fetching leaves");
+        }
+    })
+})
+
 module.exports=router;
